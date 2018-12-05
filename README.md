@@ -1,10 +1,18 @@
 # Java Remote Method Invocation usage example
 
+TODO: http://condor.depaul.edu/elliott/513/projects-archive/DS420Fall99/ginRmi/project/overview.htm
+
 ## Introduction to RMI
 The RMI (Remote Method Invocation) is an API that provides a mechanism to create distributed application in Java.
 RMI (Remote Method Invocation) is a way that a programmer, using the Java programming language and development environment, can write object-oriented programming in which objects on different computers can interact in a distributed network.
 
-### General
+### Expectations
+TODO
+
+### History
+TODO
+
+### General information
 - Client-server systems usage
 - Enables delivery of data between 2 and more different applications (usually client-server)
 - Uses TCP
@@ -18,7 +26,7 @@ RMI (Remote Method Invocation) is a way that a programmer, using the Java progra
 - Object Oriented
 - Over TCP implementation, makes developer use methods, not low-level sockets and data management
 
-### What it looks and feels like
+### What using RMI looks and feels like
 `client calls some object's method -> server's method gets invoked`
 
 #### Server.java
@@ -125,6 +133,7 @@ Server said hello 5 times
 ```
 
 ## Architecture
+TODO: Use structure schema
 - Remote Object
   - The server on which the methods will be invoked
   - Exports and implements interface (list of methods) for further remote invokations
@@ -138,7 +147,7 @@ Server said hello 5 times
   network)
   - Calls methods that are implemented in that object
 
-## How does it actually work
+## How does it work under the hood
 - Server implements a remote interface
 - Stub and skeleton being compiled
   - The stub (client side) hides the serialization of parameters and the network-level communication
@@ -154,12 +163,13 @@ Server said hello 5 times
 the Remote Object 
 - The RMI layer returns a response to the Client
 
-## RMI vs REST vs ...
+## Alternatives
+### RMI vs REST vs ...
 TODO
 
-## RMI on Android
+## The future of RMI
+### RMI on Android
 Java.rmi unfortunately does not come with Android and therefore it's not possible to use it
 
-## The future of RMI
-It is going to die...
+In conclusion, the RMI is going to die...
  
