@@ -176,5 +176,6 @@ TODO
 ### RMI on Android
 Java.rmi unfortunately does not come with Android and therefore it's not possible to use it
 
-In conclusion, the RMI is going to die...
+## In conclusion
+... the RMI is going to die ...
  
