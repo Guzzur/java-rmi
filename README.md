@@ -1,19 +1,24 @@
 # Java Remote Method Invocation usage example
 
 ## Introduction to RMI
-- General
-  - Client-server systems usage
-  - Enables delivery of data between 2 and more different applications (usually client-server)
-  - Uses TCP
-- The classic low-level model
-  - TCP connections using sockets
-  - Stream or object writing/reading
-- The RMI model
-  - Client calls methods on the Server
-  - Object Oriented
-  - Over TCP implementation, makes developer use methods, not low-level sockets and data management
+The RMI (Remote Method Invocation) is an API that provides a mechanism to create distributed application in Java.
+RMI (Remote Method Invocation) is a way that a programmer, using the Java programming language and development environment, can write object-oriented programming in which objects on different computers can interact in a distributed network.
 
-What it looks and feels like:<br>
+### General
+- Client-server systems usage
+- Enables delivery of data between 2 and more different applications (usually client-server)
+- Uses TCP
+
+### The classic low-level model
+- TCP connections using sockets
+- Stream or object writing/reading
+
+### The RMI model
+- Client calls methods on the Server
+- Object Oriented
+- Over TCP implementation, makes developer use methods, not low-level sockets and data management
+
+### What it looks and feels like
 `client calls some object's method -> server's method gets invoked`
 ```java
 /*------------------*/
@@ -28,12 +33,14 @@ class Client {
   obj.someMethod();
 }
 ```
-What it actually does:<br>
+
+### What it actually does
 `client calls proxy's method -> proxy -> tcp -> rmi layer -> server's method gets invoked`
 ```java
 /*------------------*/
 /*   ACKCHYUALLY    */
 /*------------------*/
+...
 ```
 
 ## Architecture
