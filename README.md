@@ -13,6 +13,29 @@
   - Object Oriented
   - Over TCP implementation, makes developer use methods, not low-level sockets and data management
 
+What it looks and feels like:<br>
+`client calls some object's method -> server's method gets invoked`
+```java
+/*------------------*/
+/*    FEELS LIKE    */
+/*------------------*/
+class Server {
+  someMethod() {}
+}
+
+class Client {
+  Server obj = new Server();
+  obj.someMethod();
+}
+```
+What it actually does:<br>
+`client calls proxy's method -> proxy -> tcp -> rmi layer -> server's method gets invoked`
+```java
+/*------------------*/
+/*   ACKCHYUALLY    */
+/*------------------*/
+```
+
 ## Architecture
 - Remote Object
   - The server on which the methods will be invoked
@@ -28,6 +51,12 @@
   - Calls methods that are implemented in that object
 
 ## How does it actually work
+- Server implements a remote interface
+- Stub and skeleton being compiled
+  - The stub (client side) hides the serialization of parameters and the network-level communication
+  in order to present a simple invocation mechanism to the caller
+  - The skeleton (server side) is responsible for dispatching the call to the actual remote object
+  implementation
 - Server binds methods in the RMI registry
 - RMI registry publishes proxy
 - Client looks up and receives proxy
