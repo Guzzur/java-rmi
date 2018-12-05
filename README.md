@@ -37,6 +37,7 @@ public class Client {
 
 ### What it actually (akchyually) does
 `client calls proxy's method -> proxy -> tcp -> rmi layer -> server's method gets invoked`
+
 #### RMIInterface.java
 ```java
 package io.github.guzzur.rmiinterface;
@@ -45,9 +46,10 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 public interface RMIInterface extends Remote {
-    public String helloTo(String name) throws RemoteException;
+    public String sayHello(int times) throws RemoteException;
 }
 ```
+
 #### RMIServer.java
 ```java
 package io.github.guzzur.rmiserver;
@@ -58,8 +60,7 @@ import java.rmi.server.UnicastRemoteObject;
 
 import io.github.guzzur.RMIInterface;
 
-public class ServerOperation extends UnicastRemoteObject implements RMIInterface{
-
+public class ServerOperation extends UnicastRemoteObject implements RMIInterface {
     private static final long serialVersionUID = 1L;
 
     protected ServerOperation() throws RemoteException {
@@ -67,15 +68,16 @@ public class ServerOperation extends UnicastRemoteObject implements RMIInterface
     }
 
     @Override
-    public String helloTo(String name) throws RemoteException{
-        System.err.println(name + " is trying to contact!");
-        return "Server says hello to " + name;
+    public String sayHello(int times) throws RemoteException {
+    	for (int i=0; i < times; i++)
+        	System.out.println("Hello!");
+        return "Server said hello " + times + " times";
     }
 
     public static void main(String[] args){
         try {
-            Naming.rebind("//localhost/MyServer", new ServerOperation());            
-            System.err.println("Server ready");
+            Naming.rebind("//localhost/RMIServer", new ServerOperation());            
+            System.out.println("Server ready");
         } catch (Exception e) {
             System.err.println("Server exception: " + e.toString());
             e.printStackTrace();
@@ -83,6 +85,7 @@ public class ServerOperation extends UnicastRemoteObject implements RMIInterface
     }
 }
 ```
+
 #### RMIClient.java
 ```java
 package io.github.guzzur.rmiclient;
@@ -96,17 +99,29 @@ import javax.swing.JOptionPane;
 import io.github.guzzur.rmiinterface.RMIInterface;
 
 public class ClientOperation {
-
-	private static RMIInterface look_up;
+	private static RMIInterface lookUp;
 
 	public static void main(String[] args) 
 		throws MalformedURLException, RemoteException, NotBoundException {
-		look_up = (RMIInterface) Naming.lookup("//localhost/MyServer");
-		String txt = JOptionPane.showInputDialog("What is your name?");
-		String response = look_up.helloTo(txt);
-		JOptionPane.showMessageDialog(null, response);
+		lookUp = (RMIInterface) Naming.lookup("//localhost/RMIServer");
+		int times = 5
+		String response = lookUp.sayHello(times);
+		System.out.println(response);
 	}
 }
+```
+
+#### Result
+```
+/* SERVER */
+Hello!
+Hello!
+Hello!
+Hello!
+Hello!
+
+/* Client */
+Server said hello 5 times
 ```
 
 ## Architecture
@@ -138,3 +153,13 @@ public class ClientOperation {
 - The RMI layer on the Remote listens and receives the invocation and calls the relevant method of
 the Remote Object 
 - The RMI layer returns a response to the Client
+
+## RMI vs REST vs ...
+TODO
+
+## RMI on Android
+Java.rmi unfortunately does not come with Android and therefore it's not possible to use it
+
+## The future of RMI
+It is going to die...
+ 
