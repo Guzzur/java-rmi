@@ -163,11 +163,16 @@ TODO: Use structure schema
 the Remote Object 
 - The RMI layer returns a response to the Client
 
+## Security
+TODO
+
 ## Alternatives
 ### RMI vs REST vs ...
 TODO
 
 ## The future of RMI
+### RMI Programming for Applets
+TODO
 ### RMI on Android
 Java.rmi unfortunately does not come with Android and therefore it's not possible to use it
 
