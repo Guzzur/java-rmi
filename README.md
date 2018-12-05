@@ -20,12 +20,19 @@
   - And... that's it, you are good to go, without any sockets or data transportation management
 - RMI Registry
   - Comes with standard Java Development Kit installation
-  - Receives interface and connection details from Remote Object
+  - Receives interface and connection details from the Remote
+  - Usualy located in the same computer with the Remote
 - Client
   - Receives Remote reference/proxy from RMI Registry (object that implements the interface over the
   network)
   - Calls methods that are implemented in that object
 
 ## How does it actually work
-1. test
-2. test
+- Server binds methods in the RMI registry
+- RMI registry publishes proxy
+- Client looks up and receives proxy
+- Client calls methods of the proxy
+- The proxy implements and invokes method on the Remote
+- The RMI layer on the Remote listens and receives the invocation and calls the relevant method of
+the Remote Object 
+- The RMI layer returns a response to the Client
