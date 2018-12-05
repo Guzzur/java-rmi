@@ -21,12 +21,14 @@ RMI (Remote Method Invocation) is a way that a programmer, using the Java progra
 ### What it looks and feels like
 `client calls some object's method -> server's method gets invoked`
 
-#### SomeFile.java
+#### Server.java
 ```java
 public class Server {
   someMethod() {}
 }
-
+```
+#### Client.java
+```java
 public class Client {
   Server obj = new Server();
   obj.someMethod();
