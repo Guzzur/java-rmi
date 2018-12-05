@@ -60,7 +60,7 @@ import java.rmi.server.UnicastRemoteObject;
 
 import io.github.guzzur.RMIInterface;
 
-public class ServerOperation extends UnicastRemoteObject implements RMIInterface {
+public class RMIServer extends UnicastRemoteObject implements RMIInterface {
     private static final long serialVersionUID = 1L;
 
     protected ServerOperation() throws RemoteException {
@@ -98,7 +98,7 @@ import javax.swing.JOptionPane;
 
 import io.github.guzzur.rmiinterface.RMIInterface;
 
-public class ClientOperation {
+public class RMIClient {
 	private static RMIInterface lookUp;
 
 	public static void main(String[] args) 
