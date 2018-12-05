@@ -20,27 +20,91 @@ RMI (Remote Method Invocation) is a way that a programmer, using the Java progra
 
 ### What it looks and feels like
 `client calls some object's method -> server's method gets invoked`
+
+SomeFile.java
 ```java
-/*------------------*/
-/*    FEELS LIKE    */
-/*------------------*/
-class Server {
+public class Server {
   someMethod() {}
 }
 
-class Client {
+public class Client {
   Server obj = new Server();
   obj.someMethod();
 }
 ```
 
-### What it actually does
+### What it actually (akchyually) does
 `client calls proxy's method -> proxy -> tcp -> rmi layer -> server's method gets invoked`
+#### RMIInterface.java
 ```java
-/*------------------*/
-/*   ACKCHYUALLY    */
-/*------------------*/
-...
+package io.github.guzzur.rmiinterface;
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
+public interface RMIInterface extends Remote {
+    public String helloTo(String name) throws RemoteException;
+}
+```
+#### RMIServer.java
+```java
+package io.github.guzzur.rmiserver;
+
+import java.rmi.Naming;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+
+import io.github.guzzur.RMIInterface;
+
+public class ServerOperation extends UnicastRemoteObject implements RMIInterface{
+
+    private static final long serialVersionUID = 1L;
+
+    protected ServerOperation() throws RemoteException {
+        super();
+    }
+
+    @Override
+    public String helloTo(String name) throws RemoteException{
+        System.err.println(name + " is trying to contact!");
+        return "Server says hello to " + name;
+    }
+
+    public static void main(String[] args){
+        try {
+            Naming.rebind("//localhost/MyServer", new ServerOperation());            
+            System.err.println("Server ready");
+        } catch (Exception e) {
+            System.err.println("Server exception: " + e.toString());
+            e.printStackTrace();
+        }
+    }
+}
+```
+#### RMIClient.java
+```java
+package io.github.guzzur.rmiclient;
+
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import javax.swing.JOptionPane;
+
+import io.github.guzzur.rmiinterface.RMIInterface;
+
+public class ClientOperation {
+
+	private static RMIInterface look_up;
+
+	public static void main(String[] args) 
+		throws MalformedURLException, RemoteException, NotBoundException {
+		look_up = (RMIInterface) Naming.lookup("//localhost/MyServer");
+		String txt = JOptionPane.showInputDialog("What is your name?");
+		String response = look_up.helloTo(txt);
+		JOptionPane.showMessageDialog(null, response);
+	}
+}
 ```
 
 ## Architecture
