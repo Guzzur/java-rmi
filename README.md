@@ -175,7 +175,7 @@ TODO: Use structure schema
 
 ## How does it work under the hood
 
-TODO: Passing parameters via RMI
+TODO: Passing parameters via RMI, https://docs.oracle.com/javase/8/docs/platform/rmi/spec/rmi-objmodel7.html
 
 - Server implements a remote interface
 - Stub and skeleton being compiled
