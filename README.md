@@ -175,6 +175,8 @@ TODO: Use structure schema
 
 ## How does it work under the hood
 
+TODO: Passing parameters via RMI
+
 - Server implements a remote interface
 - Stub and skeleton being compiled
   - The stub (client side) hides the serialization of parameters and the network-level communication
