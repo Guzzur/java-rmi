@@ -1,6 +1,6 @@
 # Java Remote Method Invocation usage example
 
-TODO: http://condor.depaul.edu/elliott/513/projects-archive/DS420Fall99/ginRmi/project/overview.htm
+TODO: Find something useful here: http://condor.depaul.edu/elliott/513/projects-archive/DS420Fall99/ginRmi/project/overview.htm
 
 ## Introduction to RMI
 The RMI (Remote Method Invocation) is an API that provides a mechanism to create distributed application in Java.
@@ -128,7 +128,7 @@ Hello!
 Hello!
 Hello!
 
-/* Client */
+/* CLIENT */
 Server said hello 5 times
 ```
 
@@ -174,8 +174,10 @@ TODO
 ### RMI Programming for Applets
 TODO
 ### RMI on Android
-Java.rmi unfortunately does not come with Android and therefore it's not possible to use it
+Java.RMI unfortunately does not come with Android and therefore it's not possible to use it
+### Other usages of RMI
 
+TODO
 ## In conclusion
-... the RMI is going to die ...
+TODO: Explain why ... the RMI is going to die ...
  
