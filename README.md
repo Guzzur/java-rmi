@@ -167,7 +167,7 @@ the Remote Object
 TODO
 
 ## Alternatives
-### RMI vs REST vs ...
+### RMI vs REST vs SOAP vs ...
 TODO
 
 ## The future of RMI
@@ -176,7 +176,6 @@ TODO
 ### RMI on Android
 Java.RMI unfortunately does not come with Android and therefore it's not possible to use it
 ### Other usages of RMI
-
 TODO
 ## In conclusion
 TODO: Explain why ... the RMI is going to die ...
