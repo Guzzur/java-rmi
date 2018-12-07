@@ -1,7 +1,5 @@
 # Java Remote Method Invocation usage example
 
-TODO: Find something useful here: http://condor.depaul.edu/elliott/513/projects-archive/DS420Fall99/ginRmi/project/overview.htm
-
 ## Introduction to RMI
 
 The RMI (Remote Method Invocation) is an API that provides a mechanism to create distributed application in Java.
@@ -9,28 +7,31 @@ RMI (Remote Method Invocation) is a way that a programmer, using the Java progra
 
 ### Expectations
 
-TODO
+In this reading we will taste a little bit of RMI, will see how to code it with two examples (simple and advanced-ish), and (spoiler alert, RMI is not dying, is already dead) give a modern alternatives in the conclusion.
 
 ### History
 
-TODO
+Response–request protocols date to early distributed computing in the late 1960s, theoretical proposals of remote procedure calls as the model of network operations date to the 1970s, and practical implementations date to the early 1980s. In the 1990s, with the popularity of object-oriented programming, the alternative model of remote method invocation (RMI) was widely implemented, such as in Common Object Request Broker Architecture (CORBA, 1991) and later, the Java Remote Method Invocation.
 
-### General information
+Remote Method Invocation was introduced with the 1.1 release of Java (February 1997). In J2SE 5.0 release on September 2004 the automatic stub generation for RMI objects was added.
 
-- Client-server systems usage
+RMIs in turn fell in popularity with the rise of the internet, particularly in the 2000s.
+
+### RMI General information
+
 - Enables delivery of data between 2 and more different applications (usually client-server)
 - Uses TCP
 
-### The classic low-level model
+  #### The classic low-level model
 
-- TCP connections using sockets
-- Stream or object writing/reading
+  - TCP connections using sockets
+  - Stream or object writing/reading
 
-### The RMI model
+  #### The RMI model
 
-- Client calls methods on the Server
-- Object Oriented
-- Over TCP implementation, makes developer use methods, not low-level sockets and data management
+  - Client calls methods on the Server
+  - Object Oriented
+  - Over TCP implementation, makes developer use methods, not low-level sockets and data management
 
 ### What using RMI looks and feels like
 
@@ -53,9 +54,44 @@ public class Client {
 }
 ```
 
-### What it actually (akchyually) does
+### What it akchyually does
 
 `client calls proxy's method -> proxy -> tcp -> rmi layer -> server's method gets invoked`
+
+## Architecture
+
+TODO: Use structure schema
+
+- Remote Object
+  - The server on which the methods will be invoked
+  - Exports and implements interface (list of methods) for further remote invokations
+  - And... that's it, you are good to go, without any sockets or data transportation management
+- RMI Registry
+  - Comes with standard Java Development Kit installation
+  - Receives interface and connection details from the Remote
+  - Usualy located in the same computer with the Remote
+- Client
+  - Receives Remote reference/proxy from RMI Registry (object that implements the interface over the
+    network)
+  - Calls methods that are implemented in that object
+
+## How does it work under the hood
+
+- The server implements a remote interface
+- Stub and skeleton being compiled
+  - The stub (client side) hides the serialization of parameters and the network-level communication in order to present a simple invocation mechanism to the caller
+  - The skeleton (server side) is responsible for dispatching the call to the actual remote object implementation
+- The server binds methods in the RMI registry (calls the registry to associate a name with a remote object)
+- RMI registry publishes proxy
+- The client looks up the remote object by its name in the server's registry and then invokes a method on it
+- The proxy implements and invokes method on the Remote
+- The RMI layer on the Remote listens and receives the invocation and calls the relevant method of
+  the Remote Object
+- The RMI layer returns a response to the Client
+
+### Same thing but with code example
+
+The following application's code is an example of RMI interraction between the Client and the Server. In this simple implementation we will going to tell to the Server how many time we want it to say "Hello" and to report when it's done.
 
 #### RMIInterface.java
 
@@ -156,41 +192,9 @@ Server said hello 5 times
 
 TODO
 
-## Architecture
+## Passing objects via RMI
 
-TODO: Use structure schema
-
-- Remote Object
-  - The server on which the methods will be invoked
-  - Exports and implements interface (list of methods) for further remote invokations
-  - And... that's it, you are good to go, without any sockets or data transportation management
-- RMI Registry
-  - Comes with standard Java Development Kit installation
-  - Receives interface and connection details from the Remote
-  - Usualy located in the same computer with the Remote
-- Client
-  - Receives Remote reference/proxy from RMI Registry (object that implements the interface over the
-    network)
-  - Calls methods that are implemented in that object
-
-## How does it work under the hood
-
-TODO: Passing parameters via RMI, https://docs.oracle.com/javase/8/docs/platform/rmi/spec/rmi-objmodel7.html
-
-- Server implements a remote interface
-- Stub and skeleton being compiled
-  - The stub (client side) hides the serialization of parameters and the network-level communication
-    in order to present a simple invocation mechanism to the caller
-  - The skeleton (server side) is responsible for dispatching the call to the actual remote object
-    implementation
-- Server binds methods in the RMI registry
-- RMI registry publishes proxy
-- Client looks up and receives proxy
-- Client calls methods of the proxy
-- The proxy implements and invokes method on the Remote
-- The RMI layer on the Remote listens and receives the invocation and calls the relevant method of
-  the Remote Object
-- The RMI layer returns a response to the Client
+TODO: https://docs.oracle.com/javase/8/docs/platform/rmi/spec/rmi-objmodel7.html
 
 ## Security
 
@@ -211,10 +215,6 @@ TODO
 ### RMI on Android
 
 Java.RMI unfortunately does not come with Android and therefore it's not possible to use it
-
-### Other usages of RMI
-
-TODO
 
 ## In conclusion
 
