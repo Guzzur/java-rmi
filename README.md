@@ -57,11 +57,11 @@ public class Client {
 
 `client calls proxy's method -> proxy -> tcp -> rmi layer -> server's method gets invoked`
 
-![resources/flow_1.png](resources/flow_1.png)
+![resources/flow_1.PNG](resources/flow_1.PNG)
 
 ## Architecture
 
-![resources/structure_1.png](resources/structure_1.png)
+![resources/structure_1.PNG](resources/structure_1.PNG)
 
 - Remote Object
   - The server on which the methods will be invoked
@@ -78,7 +78,7 @@ public class Client {
 
 ## How does it work under the hood
 
-![resources/architecture_1.png](resources/architecture_1.png)
+![resources/architecture_1.PNG](resources/architecture_1.PNG)
 
 - The server implements a remote interface
 - Stub and skeleton being compiled
@@ -233,7 +233,7 @@ From https://www.infoworld.com/article/3275924/java/oracle-plans-to-dump-risky-j
 
 #### RMI vs REST vs Carmine (new Java alternative for RMI) vs SOAP
 
-![resources/trends_1.png](resources/trends_1.png)
+![resources/trends_1.PNG](resources/trends_1.PNG)
 
 One picture says it all.
 
