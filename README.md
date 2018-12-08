@@ -17,21 +17,20 @@ Remote Method Invocation was introduced with the 1.1 release of Java (February 1
 
 RMIs in turn fell in popularity with the rise of the internet, particularly in the 2000s.
 
-### RMI General information
+### RMI in general
 
-- Enables delivery of data between 2 and more different applications (usually client-server)
-- Uses TCP
+The RMI enables delivery of data between 2 and more different applications (usually client-server) while using TCP under the hood without forcing you to "read bits" from the network. The Server publishes the methods that the Clients can be using. The Client receives these methods in a runtime and the remaining is magic.
 
-  #### The classic low-level model
+#### The classic low-level model
 
-  - TCP connections using sockets
-  - Stream or object writing/reading
+- TCP connections using sockets
+- Stream or object writing/reading
 
-  #### The RMI model
+#### The RMI model
 
-  - Client calls methods on the Server
-  - Object Oriented
-  - Over TCP implementation, makes developer use methods, not low-level sockets and data management
+- Client calls methods on the Server
+- Object Oriented
+- Over TCP implementation, makes developer use methods, not low-level sockets and data management
 
 ### What using RMI looks and feels like
 
@@ -58,9 +57,11 @@ public class Client {
 
 `client calls proxy's method -> proxy -> tcp -> rmi layer -> server's method gets invoked`
 
+![resources/flow_1.png](resources/flow_1.png)
+
 ## Architecture
 
-TODO: Use structure schema
+![resources/structure_1.png](resources/structure_1.png)
 
 - Remote Object
   - The server on which the methods will be invoked
@@ -77,6 +78,8 @@ TODO: Use structure schema
 
 ## How does it work under the hood
 
+![resources/architecture_1.png](resources/architecture_1.png)
+
 - The server implements a remote interface
 - Stub and skeleton being compiled
   - The stub (client side) hides the serialization of parameters and the network-level communication in order to present a simple invocation mechanism to the caller
@@ -89,22 +92,9 @@ TODO: Use structure schema
   the Remote Object
 - The RMI layer returns a response to the Client
 
-### Same thing but with code example
+## Same thing but with code example
 
-The following application's code is an example of RMI interraction between the Client and the Server. In this simple implementation we will going to tell to the Server how many time we want it to say "Hello" and to report when it's done.
-
-#### RMIInterface.java
-
-```java
-package io.github.guzzur.rmiinterface;
-
-import java.rmi.Remote;
-import java.rmi.RemoteException;
-
-public interface RMIInterface extends Remote {
-    public String sayHello(int times) throws RemoteException;
-}
-```
+The following application's code is an example of RMI interraction between the Client and the Server. In this simple implementation we are going to tell to the Server how many times we want it to say "Hello" and to report to us when it's done.
 
 #### RMIServer.java
 
@@ -129,7 +119,8 @@ public class RMIServer extends UnicastRemoteObject implements RMIInterface {
     @Override
     public String sayHello(int times) throws RemoteException {
         for (int i=0; i < times; i++)
-            System.out.println("Hello!");
+            System.out.println(i+1 + ") Hello!");
+        System.out.println("Server said hello " + times + " times");
         return "Server said hello " + times + " times";
     }
 
@@ -145,6 +136,19 @@ public class RMIServer extends UnicastRemoteObject implements RMIInterface {
             e.printStackTrace();
         }
     }
+}
+```
+
+#### RMIInterface.java
+
+```java
+package io.github.guzzur.rmiinterface;
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
+public interface RMIInterface extends Remote {
+    public String sayHello(int times) throws RemoteException;
 }
 ```
 
@@ -178,11 +182,12 @@ public class RMIClient {
 
 ```
 /* SERVER */
-Hello!
-Hello!
-Hello!
-Hello!
-Hello!
+1) Hello!
+2) Hello!
+3) Hello!
+4) Hello!
+5) Hello!
+Server said hello 5 times
 
 /* CLIENT */
 Server said hello 5 times
@@ -194,28 +199,44 @@ TODO
 
 ## Passing objects via RMI
 
-TODO: https://docs.oracle.com/javase/8/docs/platform/rmi/spec/rmi-objmodel7.html
+From https://docs.oracle.com/javase/8/docs/platform/rmi/spec/rmi-objmodel7.html
 
-## Security
-
-TODO
-
-## Alternatives
-
-### RMI vs REST vs SOAP vs ...
-
-TODO
+> ### Passing Non-remote Objects
+>
+> A non-remote object, that is passed as a parameter of a remote method invocation or returned as a result of a remote method invocation, is passed _by copy_; that is, the object is serialized using the object serialization mechanism of the Java SE platform.
+>
+> So, when a non-remote object is passed as an argument or return value in a remote method invocation, the content of the non-remote object is copied before invoking the call on the remote object.
+>
+> When a non-remote object is returned from a remote method invocation, a new object is created in the calling virtual machine.
+>
+> ### Passing Remote Objects
+>
+> When passing an exported remote object as a parameter or return value in a remote method call, the stub for that remote object is passed instead. Remote objects that are not exported will not be replaced with a stub instance. A remote object passed _as a parameter_ can only implement remote interfaces.
 
 ## The future of RMI
-
-### RMI Programming for Applets
-
-TODO
 
 ### RMI on Android
 
 Java.RMI unfortunately does not come with Android and therefore it's not possible to use it
 
+### Security
+
+The biggest problem that I've found is that the RMI uses pure Serializable implementations, which is a "horrible mistake" due to Oracle:
+
+From https://www.infoworld.com/article/3275924/java/oracle-plans-to-dump-risky-java-serialization.html
+
+> #### Oracle plans to dump risky Java serialization
+>
+> A “horrible mistake” from 1997, the Java object serialization capability for encoding objects has serious security issues
+
+### Alternatives
+
+#### RMI vs REST vs Carmine (new Java alternative for RMI) vs SOAP
+
+![resources/trends_1.png](resources/trends_1.png)
+
+One picture says it all.
+
 ## In conclusion
 
-TODO: Explain why ... the RMI is going to die ...
+The RMI library has not changed since 2004. Even the Carmine, the alternative, hasn't changes since 2014. Looks like the REST, SOAP and other language independent approaches have won this battle.

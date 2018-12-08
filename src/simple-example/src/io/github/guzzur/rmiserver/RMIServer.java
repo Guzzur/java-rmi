@@ -18,7 +18,8 @@ public class RMIServer extends UnicastRemoteObject implements RMIInterface {
     @Override
     public String sayHello(int times) throws RemoteException {
         for (int i=0; i < times; i++)
-            System.out.println("Hello!");
+            System.out.println(i+1 + ") Hello!");
+        System.out.println("Server said hello " + times + " times");
         return "Server said hello " + times + " times";
     }
 
