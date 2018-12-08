@@ -34,7 +34,10 @@ The RMI enables delivery of data between 2 and more different applications (usua
 
 ### What using RMI looks and feels like
 
-`client calls some object's method -> server's method gets invoked`
+```
+1. client calls some object's method
+2. server's method gets invoked
+```
 
 #### Server.java
 
@@ -55,7 +58,13 @@ public class Client {
 
 ### What it akchyually does
 
-`client calls proxy's method -> proxy -> tcp -> rmi layer -> server's method gets invoked`
+```
+1. server binds the object in the registry, creating a skeleton
+2. client looks up for the object and receives stub object (proxy)
+3. client invokes stub's method
+4. stub connects to the servers object's skeleton tcp
+5. server's method gets invoked
+```
 
 ![resources/flow_1.PNG](resources/flow_1.PNG)
 
