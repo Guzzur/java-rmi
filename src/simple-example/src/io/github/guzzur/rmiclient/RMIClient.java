@@ -13,7 +13,7 @@ public class RMIClient {
     public static void main(String[] args)
             throws MalformedURLException, RemoteException, NotBoundException {
         lookUp = (RMIInterface) Naming.lookup("//localhost/RMIServer");
-        int times = 8;
+        int times = 5;
         // Woila! Now we can use sayHello method!
         String response = lookUp.sayHello(times);
         System.out.println(response);

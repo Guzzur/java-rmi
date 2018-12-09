@@ -1,6 +1,8 @@
 package io.github.guzzur.sharedclasses;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private String name;
 
     public User(String name) {

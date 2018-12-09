@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a7cee2b-0db7-4ab0-af29-a2dd511194d4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../advanced-example/src/io/github/guzzur/server/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../advanced-example/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../advanced-example/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../advanced-example/src/io/github/guzzur/stateholder/StateHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../advanced-example/src/io/github/guzzur/stateholder/StateHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../advanced-example/src/io/github/guzzur/requestresolver/RequestResolver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../advanced-example/src/io/github/guzzur/rmiinterface/RMIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../advanced-example/src/io/github/guzzur/rmiinterface/RMIInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../advanced-example/src/io/github/guzzur/sharedclasses/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/../advanced-example/src/io/github/guzzur/sharedclasses/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../advanced-example/src/io/github/guzzur/sharedclasses/State.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../advanced-example/src/io/github/guzzur/sharedclasses/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../advanced-example/src/io/github/guzzur/sharedclasses/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../advanced-example/src/io/github/guzzur/stateholder/StateHolder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/github/guzzur/rmiclient/RMIClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/github/guzzur/rmiclient/RMIClient.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,22 +62,22 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="71" />
+          <entry key="java" value="80" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="71" />
+          <entry key="JAVA" value="80" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="8" />
+          <entry key="java" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="8" />
+          <entry key="JAVA" value="11" />
         </counts>
       </usages-collector>
     </session>
@@ -79,8 +87,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/io/github/guzzur/rmiserver/RMIServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="21" column="66" lean-forward="true" selection-end-line="37" selection-end-column="1" />
+            <state relative-caret-position="204">
+              <caret line="30" column="40" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -91,8 +99,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/io/github/guzzur/rmiclient/RMIClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="42" selection-end-line="20" selection-end-column="1" />
+            <state relative-caret-position="221">
+              <caret line="13" column="77" lean-forward="true" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="77" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -103,8 +111,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/io/github/guzzur/rmiinterface/RMIInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="17" selection-end-line="7" selection-end-column="1" />
+            <state relative-caret-position="119">
+              <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -131,6 +139,7 @@
         <option value="$PROJECT_DIR$/src/RMIInterface.java" />
         <option value="$PROJECT_DIR$/src/rmiclient/RMIClient.java" />
         <option value="$PROJECT_DIR$/src/io/github/guzzur/rmiserver/RMIServer.java" />
+        <option value="$PROJECT_DIR$/src/io/github/guzzur/rmiinterface/RMIInterface.java" />
         <option value="$PROJECT_DIR$/src/io/github/guzzur/rmiclient/RMIClient.java" />
       </list>
     </option>
@@ -165,7 +174,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544289363770" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544371778729" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../advanced-example" />
   </component>
   <component name="RecentsManager">
@@ -250,7 +259,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32867134" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39944133" />
+      <window_info active="true" anchor="bottom" x="24" y="374" width="1490" height="286" id="Debug" order="3" visible="true" weight="0.400838" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -298,15 +307,6 @@
     <entry file="file://$USER_HOME$/Downloads/rmi אורי זית/rmi דוגמה מתקדמת/Server.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/rmi אורי זית/rmi דוגמה מתקדמת/Task.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#264#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/rmi אורי זית/rmi דוגמה בסיסית/server.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-146" />
@@ -321,18 +321,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/guzzur/rmiinterface/RMIInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="17" selection-end-line="7" selection-end-column="1" />
+        <state relative-caret-position="119">
+          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Downloads/rmi אורי זית/rmi דוגמה מתקדמת/Task.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#264#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/rmi אורי זית/rmi דוגמה מתקדמת/Client.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/guzzur/rmiserver/RMIServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" column="66" lean-forward="true" selection-end-line="37" selection-end-column="1" />
+        <state relative-caret-position="204">
+          <caret line="30" column="40" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -341,8 +353,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/io/github/guzzur/rmiclient/RMIClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="42" selection-end-line="20" selection-end-column="1" />
+        <state relative-caret-position="221">
+          <caret line="13" column="77" lean-forward="true" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="77" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
