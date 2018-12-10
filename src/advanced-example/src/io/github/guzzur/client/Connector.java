@@ -14,10 +14,10 @@ public class Connector {
     private static RMIInterface lookUp;
     private String userName;
 
-    public Connector(String userName) {
+    public Connector() {
         try {
             lookUp = (RMIInterface) Naming.lookup("//localhost/RMIServer");
-            this.userName = userName;
+            this.userName = "";
         } catch (MalformedURLException murle) {
 
         } catch (RemoteException re) {

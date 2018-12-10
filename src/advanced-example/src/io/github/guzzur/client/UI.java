@@ -1,5 +1,7 @@
 package io.github.guzzur.client;
 
+import io.github.guzzur.sharedclasses.Message;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,27 +9,40 @@ import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
-public class UI extends JPanel {
+public class UI extends JPanel implements Runnable {
+    Connector connector = new Connector();
+
+    int count = 0;
+
+    JFrame uiFrame = new JFrame();
+    JPanel pnlMain = new JPanel();
+    JPanel pnlOutput = new JPanel(new GridBagLayout());
+    JPanel pnlInput = new JPanel(new GridLayout(1, 3));
+    JTextField userNameField = new JTextField();
+    JTextField messageField = new JTextField();
+    JButton btnSend = new JButton("Send");
+    TextArea ta = new TextArea();
+
     public UI(){
-        JFrame uiFrame = new JFrame();
+
 
         //make sure the program exits when the frame closes
         uiFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        uiFrame.setTitle("Example GUI");
-        uiFrame.setSize(300,500);
+        uiFrame.setTitle("RMI Chatting System");
+        uiFrame.setSize(500,250);
 
-        Connector connector = new Connector("");
-        JPanel pnlMain = new JPanel(new GridLayout(2, 1));
-        JPanel pnlOutput = new JPanel(new GridBagLayout());
-        JPanel pnlInput = new JPanel(new GridLayout(1, 3));
+        pnlMain.setLayout(new BoxLayout(pnlMain, BoxLayout.PAGE_AXIS));
 
-        pnlOutput.setSize(300, 350);
-        pnlInput.setSize(300, 150);
+        pnlOutput.setSize(500, 220);
+        pnlInput.setSize(500, 30);
 
-        JTextField userNameField = new JTextField();
-        JTextField messageField = new JTextField();
-        JButton btnSend = new JButton("Send");
+        ta.setSize(480, 200);
+
+        userNameField.setSize(50, 30);
+        messageField.setSize(350, 30);
+        btnSend.setSize(100, 30);
 
         btnSend.addActionListener(new ActionListener() {
             @Override
@@ -38,6 +53,8 @@ public class UI extends JPanel {
             }
         });
 
+        pnlOutput.add(ta);
+
         pnlInput.add(userNameField);
         pnlInput.add(messageField);
         pnlInput.add(btnSend);
@@ -47,5 +64,30 @@ public class UI extends JPanel {
 
         uiFrame.add(pnlMain);
         uiFrame.setVisible(true);
+    }
+
+    @Override
+    public void run(){
+        while (true) {
+            ArrayList<Message> msgList = connector.getMsgs(count);
+            count += msgList.size();
+
+            for (Message msg : msgList) {
+                System.out.println(msg);
+                ta.append(msg.toString() + '\n');
+            }
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException ie) {
+
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        UI ui = new UI();
+        Thread t = new Thread(ui);
+        t.start();
+
     }
 }
