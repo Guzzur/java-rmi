@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0a7cee2b-0db7-4ab0-af29-a2dd511194d4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../advanced-example/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../advanced-example/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../advanced-example/src/io/github/guzzur/client/Connector.java" beforeDir="false" afterPath="$PROJECT_DIR$/../advanced-example/src/io/github/guzzur/client/Connector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../advanced-example/src/io/github/guzzur/client/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../advanced-example/src/io/github/guzzur/client/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../advanced-example/src/io/github/guzzur/rmiinterface/RMIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../advanced-example/src/io/github/guzzur/rmiinterface/RMIInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../advanced-example/src/io/github/guzzur/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../advanced-example/src/io/github/guzzur/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../advanced-example/src/io/github/guzzur/sharedclasses/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/../advanced-example/src/io/github/guzzur/sharedclasses/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -171,7 +166,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544408770684" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544408775637" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../advanced-example" />
   </component>
   <component name="RecentsManager">
@@ -243,7 +238,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="848" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25973153" />
