@@ -6,28 +6,22 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.MalformedURLException;
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 public class UI extends JPanel implements Runnable {
-    Connector connector = new Connector();
-
     int count = 0;
 
-    JFrame uiFrame = new JFrame();
-    JPanel pnlMain = new JPanel();
-    JPanel pnlOutput = new JPanel(new GridBagLayout());
-    JPanel pnlInput = new JPanel(new GridLayout(1, 3));
-    JTextField userNameField = new JTextField();
-    JTextField messageField = new JTextField();
-    JButton btnSend = new JButton("Send");
-    TextArea ta = new TextArea();
+    final Connector connector = new Connector();
+    final JFrame uiFrame = new JFrame();
+    final JPanel pnlMain = new JPanel();
+    final JPanel pnlOutput = new JPanel(new GridBagLayout());
+    final JPanel pnlInput = new JPanel(new GridLayout(1, 3));
+    final JTextField userNameField = new JTextField();
+    final JTextField messageField = new JTextField();
+    final JButton btnSend = new JButton("Send");
+    final TextArea ta = new TextArea();
 
     public UI(){
-
-
         //make sure the program exits when the frame closes
         uiFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         uiFrame.setTitle("RMI Chatting System");
@@ -76,10 +70,11 @@ public class UI extends JPanel implements Runnable {
                 System.out.println(msg);
                 ta.append(msg.toString() + '\n');
             }
+
             try {
                 Thread.sleep(500);
             } catch (InterruptedException ie) {
-
+                // TODO
             }
         }
     }
@@ -88,6 +83,5 @@ public class UI extends JPanel implements Runnable {
         UI ui = new UI();
         Thread t = new Thread(ui);
         t.start();
-
     }
 }

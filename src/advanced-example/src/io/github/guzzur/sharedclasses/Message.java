@@ -21,6 +21,6 @@ public class Message implements Serializable {
 
     @Override
     public String toString() {
-        return this.user.getName() + ": " + this.content;
+        return "[" + this.user.getName() + "]: " + this.content;
     }
 }

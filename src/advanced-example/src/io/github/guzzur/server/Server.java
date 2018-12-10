@@ -9,13 +9,12 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Server extends UnicastRemoteObject implements RMIInterface {
     private static final long serialVersionUID = 1L;
-    static ArrayList<Message> msgList = new ArrayList<>();
+    private static ArrayList<Message> msgList = new ArrayList<>();
 
-    protected Server() throws RemoteException {
+    private Server() throws RemoteException {
         super();
     }
 

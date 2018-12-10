@@ -19,11 +19,11 @@ public class Connector {
             lookUp = (RMIInterface) Naming.lookup("//localhost/RMIServer");
             this.userName = "";
         } catch (MalformedURLException murle) {
-
+            // TODO
         } catch (RemoteException re) {
-
+            // TODO
         } catch (NotBoundException nbe) {
-
+            // TODO
         }
     }
 
